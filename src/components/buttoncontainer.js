@@ -1,21 +1,20 @@
 import React from 'react';
 import Button from './button.js';
+import config from './config.js';
 
 function ButtonContainer(props) {
   return (
     <div>
-      <Button
-        onClick={() => props.onClick(0)}
-        buttonName={'Radio 1'}/>
-      <Button
-        onClick={() => props.onClick(1)}
-        buttonName={'Radio 2'}/>
-      <Button
-        onClick={() => props.onClick(2)}
-        buttonName={'Radio 3'}/>
-      <Button
-        onClick={() => props.onClick(3)}
-        buttonName={'Radio 6'}/>
+      {config.radios.map(function(radio, index){
+        console.log(radio);
+        return(
+          <Button
+            key={ index }
+            onClick={() => props.onClick(index)}
+            buttonName={radio}
+          />
+        )
+      })}
     </div>
   );
 }

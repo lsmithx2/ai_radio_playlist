@@ -7,15 +7,11 @@ const Playlist = (props) => {
   return(
     <div className='playlistContainer'>
       {currentPlaylist.map(function(playlist, index){
-        console.log(index,currentSong );
-        if(index===currentSong){
-          return <div key={ index } className='currentSong'>
+        console.log(index,currentSong,playlist['Artist'] );
+        return(
+          <div key={ index } className= {index===currentSong ? 'currentSong' : '' }>
             {playlist['Artist']} {playlist['Title']}
-          </div>;
-        }
-        return <div key={ index }>
-          {playlist['Artist']} {playlist['Title']}
-        </div>;
+          </div>)
       })}
     </div>
   );
