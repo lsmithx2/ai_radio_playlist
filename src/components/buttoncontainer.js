@@ -9,7 +9,7 @@ function ButtonContainer(props) {
         console.log(radio);
         return(
           <Button
-            key={ index }
+            key={index}
             onClick={() => props.onClick(index)}
             buttonName={radio}
           />
