@@ -2,8 +2,12 @@ import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
 const Player = (props) => {
-  const audio_src = "../audio/1045653.mp3"
-  return(audio_src)
+  console.log("track id", props.currentSong['Track_id']);
+  const audio_src = "/BBC_Introducing_Music/Kent/"+props.currentSong['Track_id']+ ".mp3";
+  console.log(audio_src);
+  return(
+    <audio onEnded = {props.nextSong}  controls="controls" id="audioplayer" src= {audio_src} type = "audio/mpeg"></audio>
+  )
 }
 
 export default Player

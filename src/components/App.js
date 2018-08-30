@@ -3,6 +3,7 @@ import '../App.css';
 import Playlist from './playlist.js';
 import Button from './button.js';
 import ButtonContainer from './buttoncontainer.js';
+import Player from './player.js'
 // import { radio1, radio2, radio3, radio6 } from '../playlists/*.json';
 import radio1 from '../playlists/radio1.json';
 import radio2 from '../playlists/radio2.json';
@@ -67,8 +68,10 @@ class App extends Component {
         />
        <Button onClick={() => this.handleClick()} buttonName={'Next song'}/>
        <ButtonContainer onClick={(playlistNumber) => this.changePlaylist(playlistNumber)}/>
-       // <audio controls = "controls"> <source src =  "../audio/1045653.mp3" type = "audio/mpeg"></source></audio>
-       <audio controls="controls" id="audioplayer" src="/1045653.mp3" type = "audio/mpeg"></audio>
+       <Player
+         currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
+         nextSong = {()=>this.handleClick()}
+       />
 
       </div>
     );
