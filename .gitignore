@@ -16,6 +16,7 @@
 .env.test.local
 .env.production.local
 /public/BBC_Introducing_Music/
+src/*.css
 
 npm-debug.log*
 yarn-debug.log*
