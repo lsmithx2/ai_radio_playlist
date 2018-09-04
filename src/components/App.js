@@ -3,7 +3,7 @@ import '../App.css';
 import Playlist from './playlist.js';
 import Button from './button.js';
 import ButtonContainer from './buttoncontainer.js';
-import Player from './player.js'
+import Player from './player.js';
 
 import radio1 from '../playlists/radio1.json';
 import radio2 from '../playlists/radio2.json';
@@ -28,17 +28,16 @@ class App extends Component {
   }
 
   handleClick() {
-    const currentSong = this.state.current.song;
+    const nextSong = this.state.current.song === this.state.playlists[this.state.current.playlist].length-1 ? 0 : this.state.current.song + 1;
     this.setState({
       current: {
         ...this.state.current,
-        song: currentSong + 1
+        song: nextSong
       }
     });
   }
 
   changePlaylist(playlistNumber) {
-    console.log('change to: ', playlistNumber);
     this.setState({
       current: {
         playlist: playlistNumber,
@@ -48,9 +47,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('playlist', this.state.playlists[0]);
-    console.log(this.state.current.playlist);
-
     return (
       <div className="App">
         <div>Introducing playlist</div>
@@ -58,12 +54,12 @@ class App extends Component {
           currentPlaylist={this.state.playlists[this.state.current.playlist]}
           currentSong={this.state.current.song}
         />
-       <Button onClick={() => this.handleClick()} buttonName={'Next song'}/>
-       <ButtonContainer onClick={(playlistNumber) => this.changePlaylist(playlistNumber)}/>
-       <Player
-         currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
-         nextSong = {()=>this.handleClick()}
-       />
+        <Button onClick={() => this.handleClick()} buttonName={'Next song'} />
+        <ButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
+        <Player
+          currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
+          nextSong={() => this.handleClick()}
+        />
       </div>
     );
   }
