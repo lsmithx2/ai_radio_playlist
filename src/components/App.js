@@ -28,7 +28,10 @@ class App extends Component {
   }
 
   handleClick() {
-    const nextSong = this.state.current.song === this.state.playlists[this.state.current.playlist].length-1 ? 0 : this.state.current.song + 1;
+    const nextSong =
+      this.state.current.song === this.state.playlists[this.state.current.playlist].length - 1
+        ? 0
+        : this.state.current.song + 1;
     this.setState({
       current: {
         ...this.state.current,
@@ -50,16 +53,23 @@ class App extends Component {
     return (
       <div className="App">
         <div>Introducing playlist</div>
-        <Playlist
-          currentPlaylist={this.state.playlists[this.state.current.playlist]}
-          currentSong={this.state.current.song}
-        />
-        <Button onClick={() => this.handleClick()} buttonName={'Next song'} />
-        <ButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
-        <Player
-          currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
-          nextSong={() => this.handleClick()}
-        />
+        <div className="playerContainer">
+          <div className="controllers">
+            <div className="cover" />
+            <Button onClick={() => this.handleClick()} buttonName={'Next song'} />
+            <ButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
+          </div>
+          <div className="playlistPlayerContainer">
+            <Playlist
+              currentPlaylist={this.state.playlists[this.state.current.playlist]}
+              currentSong={this.state.current.song}
+            />
+            <Player
+              currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
+              nextSong={() => this.handleClick()}
+            />
+          </div>
+        </div>
       </div>
     );
   }

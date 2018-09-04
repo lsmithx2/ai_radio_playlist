@@ -1,20 +1,56 @@
-// .App {
-//   text-align: center;
-// }
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-// .App-logo {
-//   animation: App-logo-spin infinite 20s linear;
-//   height: 80px;
-// }
-
-// .App-title {
-//   font-size: 1.5em;
-// }
-
-// .App-intro {
-//   font-size: large;
-// }
-
-.currentSong{
+.currentSong {
   color: green;
+}
+
+.cover {
+  height: 20vw;
+  width: 20vw;
+  margin-left: -40px;
+}
+
+.playerContainer {
+  display: flex;
+  width: 60%;
+  padding: 20px;
+}
+
+.playlistPlayerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+}
+
+.playlistContainer {
+  div {
+    margin-bottom s: 8px;
+  }
+}
+
+.controllers {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.playerContainer,
+.cover {
+  border: 1px solid #ccc;
+}
+
+.playlistContainer {
+  padding: 20px;
+  padding-top: 0px;
+  height: 80%;
+}
+
+//improve
+.button {
+  margin-top: 10px;
 }
