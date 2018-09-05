@@ -1,5 +1,4 @@
 import React from 'react';
-//import ReactAudioPlayer from 'react-audio-player';
 
 const Player = (props) => {
   const audio_src = "/BBC_Introducing_Music/Kent/"+props.currentSong['Track_id']+ ".mp3";

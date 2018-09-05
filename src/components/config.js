@@ -1,5 +1,5 @@
 const config = {
-  radios: ['radio1', 'radio2', 'radio3', 'radio6']
+  radios: ['BBC1', 'BBC2', 'BBC3', 'BBC6']
 };
 
 export default config;
