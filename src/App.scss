@@ -1,8 +1,13 @@
 $beige: #f3f3ee;
 $bbc1: #343948;
+$bbc1Light: #34394854;
 $bbc2: #fb5b46;
+$bbc2Light: #fb5b4647;
 $bbc3: #cc3040;
+$bbc3Light: #cc304057;
 $bbc6: #29666e;
+$bbc6Light: #29666e61;
+$audioPlayerGrey: #f1f3f4;
 
 @font-face {
   font-family: ReithBold;
@@ -18,6 +23,10 @@ body {
   background-color: $beige;
 }
 
+button:focus {
+  outline: none;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -30,13 +39,11 @@ body {
   margin-left: 120px;
 }
 
-.currentSong {
-  color: green;
-}
-
 .cover {
   height: 20vw;
   width: 20vw;
+  min-width: 180px;
+  min-height: 180px;
   margin-top: -80px;
   margin-left: -50px;
   border-radius: 25px;
@@ -52,6 +59,7 @@ body {
 .playerContainer {
   display: flex;
   width: 60%;
+  min-width: 550px;
   padding: 20px;
   background-color: white;
   border-radius: 25px;
@@ -60,7 +68,7 @@ body {
 .playlistPlayerContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
   width: 70%;
 }
 
@@ -69,6 +77,12 @@ body {
     margin-bottom: 8px;
     display: flex;
     flex-flow: wrap;
+    &.currentSong {
+      background-color: $audioPlayerGrey;
+      margin-left: -10px;
+      border-radius: 10px;
+      padding: 3px 10px;
+    }
   }
   .artist {
     margin-right: 20px;
@@ -79,13 +93,23 @@ body {
 }
 
 .audioPlayer {
-  height: 30%;
+  height: 15%;
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  audio {
+    width: 70%;
+  }
   .controllerButton {
     height: 54px;
     width: 54px;
     border-radius: 20px;
+    border: none;
+    background-color: $audioPlayerGrey;
+    svg {
+      width: 80%;
+    }
   }
 }
 
@@ -103,11 +127,11 @@ body {
 .playlistContainer {
   padding: 20px;
   padding-top: 0px;
-  height: 70%;
+  height: 80%;
 }
 
 .radioButtonContainer {
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top: 2%;
 }
 
