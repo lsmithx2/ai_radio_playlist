@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import config from './config.js';
 import Playlist from './playlist.js';
-import Button from './button.js';
-import ButtonContainer from './buttoncontainer.js';
+import RadioButtonContainer from './radioButtonContainer.js';
 import Player from './player.js';
 import CoverImage from './coverImage.js';
 import radio1 from '../playlists/radio1.json';
@@ -22,6 +21,7 @@ class App extends Component {
         playlist: 0
       }
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -29,11 +29,16 @@ class App extends Component {
     this.setState({ playlists: radios });
   }
 
-  handleClick() {
-    const nextSong =
-      this.state.current.song === this.state.playlists[this.state.current.playlist].length - 1
-        ? 0
-        : this.state.current.song + 1;
+  handleClick(nextOrPrevious) {
+    let nextSong;
+    if (nextOrPrevious === 'NextSong') {
+      nextSong =
+        this.state.current.song === this.state.playlists[this.state.current.playlist].length - 1
+          ? 0
+          : this.state.current.song + 1;
+    } else {
+      nextSong = this.state.current.song === 0 ? 0 : this.state.current.song - 1;
+    }
     this.setState({
       current: {
         ...this.state.current,
@@ -56,12 +61,11 @@ class App extends Component {
       <div className="App">
         {logos.bbcConnected}
         <div className="playerContainer">
-          <div className="controllers">
+          <div className="radioControllers">
             <div className="cover">
-              <CoverImage currentRadio={config.radios[this.state.current.playlist]}/>
+              <CoverImage currentRadio={config.radios[this.state.current.playlist]} />
             </div>
-            <Button onClick={() => this.handleClick()} buttonName={'Next song'} />
-            <ButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
+            <RadioButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
           </div>
           <div className="playlistPlayerContainer">
             <Playlist
@@ -70,7 +74,7 @@ class App extends Component {
             />
             <Player
               currentSong={this.state.playlists[this.state.current.playlist][this.state.current.song]}
-              nextSong={() => this.handleClick()}
+              nextSong={this.handleClick}
             />
           </div>
         </div>

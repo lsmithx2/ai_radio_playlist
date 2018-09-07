@@ -1,8 +1,17 @@
 $beige: #f3f3ee;
+$bbc1: #343948;
+$bbc2: #fb5b46;
+$bbc3: #cc3040;
+$bbc6: #29666e;
 
 @font-face {
-  font-family: Reith;
+  font-family: ReithBold;
   src: url(./styles/ReithSans_W_Bd.woff);
+}
+
+@font-face {
+  font-family: ReithLight;
+  src: url(./styles/ReithSans_W_Lt.woff);
 }
 
 body {
@@ -13,11 +22,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Reith;
+  font-family: ReithBold;
 }
 
 #bbcConnectedLogo {
-  margin: -50px;
+  margin: -60px;
+  margin-left: 120px;
 }
 
 .currentSong {
@@ -27,7 +37,8 @@ body {
 .cover {
   height: 20vw;
   width: 20vw;
-  margin-left: -40px;
+  margin-top: -80px;
+  margin-left: -50px;
   border-radius: 25px;
   background-color: white;
   display: flex;
@@ -50,19 +61,38 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 65%;
+  width: 70%;
 }
 
 .playlistContainer {
-  div {
+  .track {
     margin-bottom: 8px;
+    display: flex;
+    flex-flow: wrap;
+  }
+  .artist {
+    margin-right: 20px;
+  }
+  .title {
+    font-family: ReithLight;
   }
 }
 
-.controllers {
+.audioPlayer {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  .controllerButton {
+    height: 54px;
+    width: 54px;
+    border-radius: 20px;
+  }
+}
+
+.radioControllers {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 30%;
 }
 
 .playerContainer,
@@ -73,10 +103,78 @@ body {
 .playlistContainer {
   padding: 20px;
   padding-top: 0px;
-  height: 80%;
+  height: 70%;
 }
 
-//improve
-.button {
-  margin-top: 10px;
+.radioButtonContainer {
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+button {
+  &.selectRadio {
+    width: 78%;
+    height: 50px;
+    margin-top: 7%;
+    margin-right: 5%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: reithBold;
+    font-size: 20px;
+    &:hover {
+      color: white !important;
+      svg.gel-icon-iplayer-radio {
+        fill: white !important;
+      }
+    }
+  }
+  //create a mixin for that
+  &#BBC1 {
+    color: $bbc1;
+    svg.gel-icon-iplayer-radio {
+      fill: $bbc1;
+    }
+    border: 2px solid $bbc1;
+    &:hover {
+      background-color: $bbc1;
+    }
+  }
+  &#BBC2 {
+    color: $bbc2;
+    svg.gel-icon-iplayer-radio {
+      fill: $bbc2;
+    }
+    border: 2px solid $bbc2;
+    &:hover {
+      border: 5px solid $bbc2;
+      background-color: $bbc2;
+    }
+  }
+  &#BBC3 {
+    color: $bbc3;
+    svg.gel-icon-iplayer-radio {
+      fill: $bbc3;
+    }
+    border: 2px solid $bbc3;
+    &:hover {
+      background-color: $bbc3;
+    }
+  }
+  &#BBC6 {
+    color: $bbc6;
+    border: 2px solid $bbc6;
+    svg.gel-icon-iplayer-radio {
+      fill: $bbc6;
+    }
+    &:hover {
+      background-color: $bbc6;
+    }
+  }
+}
+
+svg.gel-icon-iplayer-radio {
+  width: 16%;
+  margin-right: 15px;
 }

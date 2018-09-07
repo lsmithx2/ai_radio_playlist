@@ -28,6 +28,19 @@ const logos = {
         <path fill="#333333" opacity="1.00" d=" M 383.77 106.91 C 385.19 106.48 385.66 106.96 385.17 108.36 C 383.76 108.78 383.29 108.30 383.77 106.91 Z" />
       </g>
     </svg>,
+  selectRadio:
+    <svg viewBox="0 0 32 32" className="gel-icon-iplayer-radio">
+      <path d="M21.5 6.2l-1.6 1.6c4.2 4.6 4.2 11.7 0 16.3l1.6 1.6c5.1-5.5 5.1-13.9 0-19.5z"></path>
+      <path d="M26.2 1.5l-1.6 1.6c6.8 7.3 6.8 18.6 0 25.8l1.6 1.6c7.7-8.1 7.7-20.9 0-29zM5.7 3.7H0v5.7h5.7V7l9.8 9-9.8 9V13.2H0v15.1h5.7L19 16"></path>
+    </svg>,
+  previous: 
+    <svg viewBox="0 0 32 32" className="gel-icon-previous">
+      <path d="M3 16l26 16v-7.2L14.4 16 29 7.2V0"></path>
+    </svg>,
+  next: 
+    <svg viewBox="0 0 32 32" className="gel-icon-next">
+      <path d="M29 16L3 0v7.2L17.6 16 3 24.8V32"></path>
+    </svg>,
 };
 
 export default logos;
