@@ -65,7 +65,7 @@ class App extends Component {
             <div className="cover">
               <CoverImage currentRadio={config.radios[this.state.current.playlist]} />
             </div>
-            <RadioButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} />
+            <RadioButtonContainer onClick={playlistNumber => this.changePlaylist(playlistNumber)} currentPlaylist={this.state.current.playlist}/>
           </div>
           <div className="playlistPlayerContainer">
             <Playlist

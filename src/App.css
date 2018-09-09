@@ -51,21 +51,26 @@ button:focus {
   justify-content: space-between;
   width: 70%; }
 
-.playlistContainer .track {
-  margin-bottom: 8px;
+.playlistContainer {
+  padding: 20px;
+  padding-top: 0px;
+  height: 80%;
   display: flex;
-  flex-flow: wrap; }
-  .playlistContainer .track.currentSong {
-    background-color: #f1f3f4;
-    margin-left: -10px;
-    border-radius: 10px;
-    padding: 3px 10px; }
-
-.playlistContainer .artist {
-  margin-right: 20px; }
-
-.playlistContainer .title {
-  font-family: ReithLight; }
+  flex-direction: column;
+  justify-content: space-evenly; }
+  .playlistContainer .track {
+    margin-bottom: 8px;
+    display: flex;
+    flex-flow: wrap; }
+    .playlistContainer .track.currentSong {
+      background-color: #f1f3f4;
+      margin-left: -10px;
+      border-radius: 10px;
+      padding: 3px 10px; }
+  .playlistContainer .artist {
+    margin-right: 20px; }
+  .playlistContainer .title {
+    font-family: ReithLight; }
 
 .audioPlayer {
   height: 15%;
@@ -93,11 +98,6 @@ button:focus {
 .cover {
   border: 1px solid #ccc; }
 
-.playlistContainer {
-  padding: 20px;
-  padding-top: 0px;
-  height: 80%; }
-
 .radioButtonContainer {
   margin-left: 5%;
   margin-top: 2%; }
@@ -113,9 +113,9 @@ button.selectRadio {
   align-items: center;
   font-family: reithBold;
   font-size: 20px; }
-  button.selectRadio:hover {
+  button.selectRadio:hover, button.selectRadio.selectedRadio {
     color: white !important; }
-    button.selectRadio:hover svg.gel-icon-iplayer-radio {
+    button.selectRadio:hover svg.gel-icon-iplayer-radio, button.selectRadio.selectedRadio svg.gel-icon-iplayer-radio {
       fill: white !important; }
 
 button#BBC1 {
@@ -123,33 +123,33 @@ button#BBC1 {
   border: 2px solid #343948; }
   button#BBC1 svg.gel-icon-iplayer-radio {
     fill: #343948; }
-  button#BBC1:hover {
+  button#BBC1:hover, button#BBC1.selectedRadio {
     background-color: #343948; }
 
 button#BBC2 {
-  color: #fb5b46;
-  border: 2px solid #fb5b46; }
+  color: #e68339;
+  border: 2px solid #e68339; }
   button#BBC2 svg.gel-icon-iplayer-radio {
-    fill: #fb5b46; }
-  button#BBC2:hover {
-    border: 5px solid #fb5b46;
-    background-color: #fb5b46; }
+    fill: #e68339; }
+  button#BBC2:hover, button#BBC2.selectedRadio {
+    border: 5px solid #e68339;
+    background-color: #e68339; }
 
 button#BBC3 {
-  color: #cc3040;
-  border: 2px solid #cc3040; }
+  color: #d73d36;
+  border: 2px solid #d73d36; }
   button#BBC3 svg.gel-icon-iplayer-radio {
-    fill: #cc3040; }
-  button#BBC3:hover {
-    background-color: #cc3040; }
+    fill: #d73d36; }
+  button#BBC3:hover, button#BBC3.selectedRadio {
+    background-color: #d73d36; }
 
 button#BBC6 {
-  color: #29666e;
-  border: 2px solid #29666e; }
+  color: #417881;
+  border: 2px solid #417881; }
   button#BBC6 svg.gel-icon-iplayer-radio {
-    fill: #29666e; }
-  button#BBC6:hover {
-    background-color: #29666e; }
+    fill: #417881; }
+  button#BBC6:hover, button#BBC6.selectedRadio {
+    background-color: #417881; }
 
 svg.gel-icon-iplayer-radio {
   width: 16%;

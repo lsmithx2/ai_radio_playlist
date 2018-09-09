@@ -3,7 +3,7 @@ import logos from '../images/logos.js';
 
 const RadioButton = props => {
   return (
-    <button className="selectRadio" id={props.buttonName} onClick={props.onClick}>
+    <button className={`selectRadio ${props.selectedPlaylist ? 'selectedRadio' : ''}`} id={props.buttonName} onClick={props.onClick}>
       {logos.selectRadio}
       {props.buttonName}
     </button>
