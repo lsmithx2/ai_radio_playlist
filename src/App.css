@@ -26,7 +26,9 @@ button:focus {
   height: 20vw;
   width: 20vw;
   min-width: 180px;
+  max-width: 300px;
   min-height: 180px;
+  max-height: 300px;
   margin-top: -80px;
   margin-left: -50px;
   border-radius: 25px;
@@ -41,6 +43,7 @@ button:focus {
   display: flex;
   width: 60%;
   min-width: 550px;
+  max-width: 1000px;
   padding: 20px;
   background-color: white;
   border-radius: 25px; }
@@ -59,9 +62,17 @@ button:focus {
   flex-direction: column;
   justify-content: space-evenly; }
   .playlistContainer .track {
+    font-size: 1.4vw;
     margin-bottom: 8px;
     display: flex;
-    flex-flow: wrap; }
+    flex-flow: wrap;
+    font-size: 18px; }
+    @media only screen and (max-width: 1200px) {
+      .playlistContainer .track {
+        font-size: 15px; } }
+    @media only screen and (min-width: 1800px) {
+      .playlistContainer .track {
+        font-size: 20px; } }
     .playlistContainer .track.currentSong {
       background-color: #f1f3f4;
       margin-left: -10px;
@@ -104,6 +115,7 @@ button:focus {
 
 button.selectRadio {
   width: 78%;
+  max-width: 200px;
   height: 50px;
   margin-top: 7%;
   margin-right: 5%;
@@ -113,6 +125,9 @@ button.selectRadio {
   align-items: center;
   font-family: reithBold;
   font-size: 20px; }
+  button.selectRadio svg.gel-icon-iplayer-radio {
+    width: 16%;
+    margin-right: 15px; }
   button.selectRadio:hover, button.selectRadio.selectedRadio {
     color: white !important; }
     button.selectRadio:hover svg.gel-icon-iplayer-radio, button.selectRadio.selectedRadio svg.gel-icon-iplayer-radio {
@@ -132,7 +147,6 @@ button#BBC2 {
   button#BBC2 svg.gel-icon-iplayer-radio {
     fill: #e68339; }
   button#BBC2:hover, button#BBC2.selectedRadio {
-    border: 5px solid #e68339;
     background-color: #e68339; }
 
 button#BBC3 {
@@ -150,7 +164,3 @@ button#BBC6 {
     fill: #417881; }
   button#BBC6:hover, button#BBC6.selectedRadio {
     background-color: #417881; }
-
-svg.gel-icon-iplayer-radio {
-  width: 16%;
-  margin-right: 15px; }

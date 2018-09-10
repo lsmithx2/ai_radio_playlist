@@ -9,6 +9,18 @@ $bbc6: #417881;
 $bbc6Light: #29666e61;
 $audioPlayerGrey: #f1f3f4;
 
+@mixin radioButtonColor($radioColor) {
+  color: $radioColor;
+  border: 2px solid $radioColor;
+  svg.gel-icon-iplayer-radio {
+    fill: $radioColor;
+  }
+  &:hover,
+  &.selectedRadio {
+    background-color: $radioColor;
+  }
+}
+
 @font-face {
   font-family: ReithBold;
   src: url(./styles/ReithSans_W_Bd.woff);
@@ -43,7 +55,9 @@ button:focus {
   height: 20vw;
   width: 20vw;
   min-width: 180px;
+  max-width: 300px;
   min-height: 180px;
+  max-height: 300px;
   margin-top: -80px;
   margin-left: -50px;
   border-radius: 25px;
@@ -60,6 +74,7 @@ button:focus {
   display: flex;
   width: 60%;
   min-width: 550px;
+  max-width: 1000px;
   padding: 20px;
   background-color: white;
   border-radius: 25px;
@@ -80,9 +95,17 @@ button:focus {
   flex-direction: column;
   justify-content: space-evenly;
   .track {
+    font-size: 1.4vw;
     margin-bottom: 8px;
     display: flex;
     flex-flow: wrap;
+    font-size: 18px;
+    @media only screen and (max-width: 1200px) {
+      font-size: 15px;
+    }
+    @media only screen and (min-width: 1800px) {
+      font-size: 20px;
+    }
     &.currentSong {
       background-color: $audioPlayerGrey;
       margin-left: -10px;
@@ -138,6 +161,7 @@ button:focus {
 button {
   &.selectRadio {
     width: 78%;
+    max-width: 200px;
     height: 50px;
     margin-top: 7%;
     margin-right: 5%;
@@ -147,6 +171,10 @@ button {
     align-items: center;
     font-family: reithBold;
     font-size: 20px;
+    svg.gel-icon-iplayer-radio {
+      width: 16%;
+      margin-right: 15px;
+    }
     &:hover,
     &.selectedRadio {
       color: white !important;
@@ -155,55 +183,16 @@ button {
       }
     }
   }
-  //create a mixin for that
   &#BBC1 {
-    color: $bbc1;
-    svg.gel-icon-iplayer-radio {
-      fill: $bbc1;
-    }
-    border: 2px solid $bbc1;
-    &:hover,
-    &.selectedRadio {
-      background-color: $bbc1;
-    }
+    @include radioButtonColor($bbc1);
   }
   &#BBC2 {
-    color: $bbc2;
-    svg.gel-icon-iplayer-radio {
-      fill: $bbc2;
-    }
-    border: 2px solid $bbc2;
-    &:hover,
-    &.selectedRadio {
-      border: 5px solid $bbc2;
-      background-color: $bbc2;
-    }
+    @include radioButtonColor($bbc2);
   }
   &#BBC3 {
-    color: $bbc3;
-    svg.gel-icon-iplayer-radio {
-      fill: $bbc3;
-    }
-    border: 2px solid $bbc3;
-    &:hover,
-    &.selectedRadio {
-      background-color: $bbc3;
-    }
+    @include radioButtonColor($bbc3);
   }
   &#BBC6 {
-    color: $bbc6;
-    border: 2px solid $bbc6;
-    svg.gel-icon-iplayer-radio {
-      fill: $bbc6;
-    }
-    &:hover,
-    &.selectedRadio {
-      background-color: $bbc6;
-    }
+    @include radioButtonColor($bbc6);
   }
-}
-
-svg.gel-icon-iplayer-radio {
-  width: 16%;
-  margin-right: 15px;
 }
